@@ -12,7 +12,7 @@ server.ehlo()
 with open('password.txt', 'r') as f:
     password = f.read()
 
-server.login("flashc0de404@gmail.com", "***************")
+server.login("flashc0de404@gmail.com", "@Pa$$w0rd")
 
 msg = MIMEMultipart()
 msg['From'] = 'NeuralNine'
@@ -31,7 +31,7 @@ p = MIMEBase('application', 'octet-stream')
 p.set_payload(attachment.read())
 
 encoders.encode_base64(p)
-p.add_header('Context-Disposition', f'attachment; filename={filename}')
+p.add_header('Content-Disposition', f'attachment; filename={filename}')
 msg.attach(p)
 
 text = msg.as_string()
